@@ -3,7 +3,7 @@ import signUpUser from "./4-user-promise.js";
 
 export default async function handleProfileSignup(firstName, lastName, fileName) {
   return Promise
-    .allSettled([signUpUser(firstName, lastName), uploadPhoto(fileName))
+    .allSettled([signUpUser(firstName, lastName), uploadPhoto(fileName)])
     .then((res) => (
       res.map((ele) => ({
         status: o.status,
