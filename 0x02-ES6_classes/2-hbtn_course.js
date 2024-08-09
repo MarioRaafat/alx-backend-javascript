@@ -10,7 +10,7 @@ export default class HolbertonCourse {
    * @param {Number} length - How long the course is (in months).
    * @param {String[]} students - The names of students in the course.
    */
-  constractor(name, length, students) {
+  constructor(name, length, students) {
     this._name = name;
     this._length = length;
     this._students = students;
