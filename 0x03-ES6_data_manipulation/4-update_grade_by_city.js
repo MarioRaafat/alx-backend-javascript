@@ -14,7 +14,9 @@
  * @returns {{id: Number, firstName: String, location: String}[]}
  */
 export default function updateStudentGradeByCity (arr, city, obj) {
-  arr.filter((student) => student.location === city)
+  if (arr instanceof Array) {
+    arr
+    .filter((student) => student.location === city)
     .map((student) => {
       const g = obj.filter((grade) => grade.studentId === student.id);
       if (g.length > 0) {
@@ -22,9 +24,9 @@ export default function updateStudentGradeByCity (arr, city, obj) {
       } else {
         student.grade = 'N/A';
       }
-
       return student;
     });
-
-  return arr;
-}
+    return arr;
+  }
+  return [];
+} 
