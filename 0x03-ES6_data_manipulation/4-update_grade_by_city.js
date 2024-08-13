@@ -13,20 +13,20 @@
  * @author Bezaleel Olakunori <https://github.com/B3zaleel>
  * @returns {{id: Number, firstName: String, location: String}[]}
  */
-export default function updateStudentGradeByCity (arr, city, obj) {
-  if (arr instanceof Array) {
-    arr
-    .filter((student) => student.location === city)
-    .map((student) => {
-      const g = obj.filter((grade) => grade.studentId === student.id);
-      if (g.length > 0) {
-        student.grade = g[0].grade;
-      } else {
-        student.grade = 'N/A';
-      }
-      return student;
-    });
-    return arr;
+export default function updateStudentGradeByCity(students, city, newGrades) {
+  const defaultGrade = { grade: 'N/A' };
+
+  if (students instanceof Array) {
+    return students
+      .filter((student) => student.location === city)
+      .map((student) => ({
+        id: student.id,
+        firstName: student.firstName,
+        location: student.location,
+        grade: (newGrades
+          .filter((grade) => grade.studentId === student.id)
+          .pop() || defaultGrade).grade,
+      }));
   }
   return [];
-} 
+}
