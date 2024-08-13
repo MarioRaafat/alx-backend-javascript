@@ -8,6 +8,6 @@
  * @author Bezaleel Olakunori <https://github.com/B3zaleel>
  * @returns
  */
-export default function getListStudentIds (arr = []){
+export default function getListStudentIds (arr = []) {
   return arr.map((student) => student.id);
 }
