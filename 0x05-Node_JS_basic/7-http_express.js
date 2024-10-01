@@ -36,6 +36,8 @@ function countStudents(filePath) {
         }
         const report = [];
 
+        report.push('This is the list of our students');
+
         report.push(`Number of students: ${fileLines.length}`);
         for (const field in studentGroups) {
             if (field) {
