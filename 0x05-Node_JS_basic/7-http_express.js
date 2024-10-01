@@ -61,7 +61,7 @@ app.get('/', (req, res) => {
 
 app.get('/students', (req, res) => {
     try {
-        const filePath = process.argv[2] || './database.csv';
+        const filePath = process.argv[2] || '';
         countStudents(filePath)
             .then((report) => {
                 res.send(report);
