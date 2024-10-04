@@ -1,0 +1,19 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "api.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha --exit"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.7.3",
+    "request": "^2.88.2"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
