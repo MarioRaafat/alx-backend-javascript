@@ -27,12 +27,19 @@ describe('sendPaymentRequestToApi', function() {
         calculateNumberSpy.restore();
     });
 
-    it('should call Utils.calculateNumber with stub', function() {
+    it('should call Utils.calculateNumber with stub && spy for console', function() {
         const calculateNumberStub = sinon.stub(Utils, 'calculateNumber');
+        const consoleSpy = sinon.spy(console, 'log');
+
         calculateNumberStub.returns(10);
         sendPaymentRequestToApi(100, 20);
         expect(calculateNumberStub.calledOnce).to.be.true;
         expect(calculateNumberStub.returned(10)).to.be.true;
+
+        expect(consoleSpy.calledOnceWith('The total is: 10')).to.be.true;
+        expect(consoleSpy.calledOnce).to.be.true;
+
+        consoleSpy.restore();
         calculateNumberStub.restore();
     })
 });
